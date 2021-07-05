@@ -32,6 +32,7 @@ for (let i = 0; i < 1; i++) {
     console.log(removedItem);
 }
 
+<<<<<<< HEAD
 let randomDestination = chosenDestination[getRandomIndex(chosenDestination)]
 console.log(randomDestination);
 let userInput = prompt("what part of your trip would you like to change");
@@ -65,3 +66,5 @@ if (userInput3 === "entertainment"){
 }
 
 console.log(randomDestination, randomRestaurant, randomTransport, randomEntertainment);
+=======
+>>>>>>> 6e6fd71cdef9117ee3c2a22044e5e28576e609f9
