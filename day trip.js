@@ -13,9 +13,6 @@ for (let i = 0; i < 1; i++) {
 
 let chosenRestaurant = ["mexican", "italian", "carribean", "bbq", "seafood", "cajun"];
 
-function getRandomIndex(items) {
-    return Math.floor(Math.random() * items.length);
-}
 for (let i = 0; i < 1; i++) {
     let removedItem = chosenRestaurant.splice(getRandomIndex(chosenRestaurant), 1);
     console.log(removedItem);
@@ -23,9 +20,6 @@ for (let i = 0; i < 1; i++) {
 
 let chosenTransport = ["plane", "train", "car", "taxicab"];
 
-function getRandomIndex(items) {
-    return Math.floor(Math.random() * items.length);
-}
 for (let i = 0; i < 1; i++) {
     let removedItem = chosenTransport.splice(getRandomIndex(chosenTransport), 1);
     console.log(removedItem);
@@ -33,20 +27,41 @@ for (let i = 0; i < 1; i++) {
 
 let chosenEntertainment = ["movie", "music", "dance", "sport", "boating", "skydiving"];
 
-function getRandomIndex(items) {
-    return Math.floor(Math.random() * items.length);
-}
 for (let i = 0; i < 1; i++) {
     let removedItem = chosenEntertainment.splice(getRandomIndex(chosenEntertainment), 1);
     console.log(removedItem);
 }
 
-let newChosenDayTrip = ("chosenDestination", "chosenEntertainment", "chosenRestaurant", "chosenTransport");
+let randomDestination = chosenDestination[getRandomIndex(chosenDestination)]
+console.log(randomDestination);
+let userInput = prompt("what part of your trip would you like to change");
+if (userInput === "destination"){
+    randomDestination = chosenDestination[getRandomIndex(chosenDestination)]
+    console.log(randomDestination);
+}
 
-function getRandomIndex(items) {
-    return Math.floor(Math.random() * items.length);
+let randomRestaurant = chosenRestaurant[getRandomIndex(chosenRestaurant)]
+console.log(randomRestaurant);
+let userInput1 = prompt("what part of your food would you like to change");
+if (userInput1 === "restaurant"){
+    randomRestaurant = chosenRestaurant[getRandomIndex(chosenRestaurant)]
+    console.log(randomRestaurant);
 }
-for( let i = 0; i < 1; i++) {
-    let removedItem = newChosenDayTrip;
-    console.log(removedItem);
+
+let randomTransport = chosenTransport[getRandomIndex(chosenTransport)]
+console.log(randomTransport);
+let userInput2 = prompt("what part of your transportation would you like to change");
+if (userInput2 === "transport"){
+    randomTransport = chosenTransport[getRandomIndex(chosenTransport)]
+    console.log(randomTransport);
 }
+
+let randomEntertainment = chosenEntertainment[getRandomIndex(chosenEntertainment)]
+console.log(randomEntertainment);
+let userInput3 = prompt("what part of your entertainment would you like to change");
+if (userInput3 === "entertainment"){
+    randomEntertainment = chosenEntertainment[getRandomIndex(chosenEntertainment)]
+    console.log(randomEntertainment);
+}
+
+console.log(randomDestination, randomRestaurant, randomTransport, randomEntertainment);
