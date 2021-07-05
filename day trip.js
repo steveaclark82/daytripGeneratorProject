@@ -41,12 +41,3 @@ for (let i = 0; i < 1; i++) {
     console.log(removedItem);
 }
 
-let newChosenDayTrip = ("chosenDestination", "chosenEntertainment", "chosenRestaurant", "chosenTransport");
-
-function getRandomIndex(items) {
-    return Math.floor(Math.random() * items.length);
-}
-for( let i = 0; i < 1; i++) {
-    let removedItem = newChosenDayTrip;
-    console.log(removedItem);
-}
