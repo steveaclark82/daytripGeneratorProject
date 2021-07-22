@@ -1,70 +1,111 @@
 "user strict"
 
-
+// Possible trip selection
 let chosenDestination = ["miami", "orlando", "clearwater", "sarasota"];
-
-function getRandomIndex(items) {
-    return Math.floor(Math.random() * items.length);
-}
-for (let i = 0; i < 1; i++) {
-    let removedItem = chosenDestination.splice(getRandomIndex(chosenDestination), 1);
-    console.log(removedItem);
-}
-
 let chosenRestaurant = ["mexican", "italian", "carribean", "bbq", "seafood", "cajun"];
-
-for (let i = 0; i < 1; i++) {
-    let removedItem = chosenRestaurant.splice(getRandomIndex(chosenRestaurant), 1);
-    console.log(removedItem);
-}
-
 let chosenTransport = ["plane", "train", "car", "taxicab"];
-
-for (let i = 0; i < 1; i++) {
-    let removedItem = chosenTransport.splice(getRandomIndex(chosenTransport), 1);
-    console.log(removedItem);
-}
-
 let chosenEntertainment = ["movie", "music", "dance", "sport", "boating", "skydiving"];
 
-for (let i = 0; i < 1; i++) {
-    let removedItem = chosenEntertainment.splice(getRandomIndex(chosenEntertainment), 1);
-    console.log(removedItem);
+// Randomly selected trip details
+let randomDestination = getTripItem(chosenDestinations);
+let randomRestaurant = getTripItem(chosenRestaurants);
+let randomTransportMode = getTripItem(chosenTransportModes);
+let randomEntertainment = getTripItem(chosenEntertainment);
+
+
+// select a trip item for user
+function getTripItem(tripItemArray){
+
+    // generate random trip item
+    let chosenTripItem = tripItemArray[Math.floor(Math.random() * tripItemArray.length)];
+
+    // ask if user likes trip item generated
+    let tripItemChoice = prompt("Is this trip idea okay?  " + chosenTripItem, "yes or no");
+
+    // if user doesn't like trip item, rerun selection until user does
+    while (tripItemChoice !== "yes"){
+        chosenTripItem = tripItemArray[Math.floor(Math.random() * tripItemArray.length)];
+        tripItemChoice = prompt("Is this trip idea okay?  " + chosenTripItem, "yes or no");
+    }
+
+    // send selection back to where called
+    return chosenTripItem;
 }
 
-<<<<<<< HEAD
-let randomDestination = chosenDestination[getRandomIndex(chosenDestination)]
-console.log(randomDestination);
-let userInput = prompt("what part of your trip would you like to change");
-if (userInput === "destination"){
-    randomDestination = chosenDestination[getRandomIndex(chosenDestination)]
-    console.log(randomDestination);
+// confirmation if user likes trip details they selected
+let tripDetailConfirmation = userConfirmationPrompt();
+
+// get user confirmation
+function userConfirmationPrompt(){
+    let userConfirmation = prompt("Here are your trip details." + 
+        "\n" + 
+        "Type 'yes' to complete your trip or 'no' to get another trip. " +
+        "\n\n" +
+        "Destination: " + randomDestination +
+        "\n" +
+        "Transportation Mode: " + randomTransportMode +
+        "\n" +
+        "Restaurant: " + randomRestaurant +
+        "\n" +
+        "Entertainment: " + randomEntertainment, "yes or no");
+        
+        // console.log(userConfirmation);
+        return userConfirmation;
 }
 
-let randomRestaurant = chosenRestaurant[getRandomIndex(chosenRestaurant)]
-console.log(randomRestaurant);
-let userInput1 = prompt("what part of your food would you like to change");
-if (userInput1 === "restaurant"){
-    randomRestaurant = chosenRestaurant[getRandomIndex(chosenRestaurant)]
-    console.log(randomRestaurant);
+// verify user confirmation to determine if trip items need to be regenerated or not
+let userFinalAnswer = verifyUserConfirmation(tripDetailConfirmation)
+
+// confirm if user likes trip details they selected
+function verifyUserConfirmation(userConfirmation){
+    while (userConfirmation !== "yes"){
+
+        // Regenerate the trip selections again
+        randomDestination = getTripItem(possibleDestinations);
+        randomRestaurant = getTripItem(possibleRestaurants);
+        randomTransportMode = getTripItem(possibleTransportModes);
+        randomEntertainment = getTripItem(possibleEntertainment);
+
+        // display newly generated trip details in prompt and ask user to confirm
+        userConfirmation = prompt("Here are your trip details. Type 'yes' to confirm or 'no' to start over." +
+            "\n\n" +
+            "Destination: " + randomDestination +
+             "\n" +
+             "Transportation Mode: " + randomTransportMode +
+            "\n" +
+            "Restaurant: " + randomRestaurant +
+            "\n" +
+            "Entertainment: " + randomEntertainment, "yes or no");
+    }
+
+    
+    // if user confirms trip, redisplay trip details and wish them well on their trip
+    if (userConfirmation === "yes"){
+        alert("Your trip is complete, enjoy!" +
+        "\n\n" +
+        "Destination: " + randomDestination +
+        "\n" +
+        "Transportation Mode: " + randomTransportMode +
+        "\n" +
+        "Restaurant: " + randomRestaurant +
+        "\n" +
+        "Entertainment: " + randomEntertainment);
+    }
 }
 
-let randomTransport = chosenTransport[getRandomIndex(chosenTransport)]
-console.log(randomTransport);
-let userInput2 = prompt("what part of your transportation would you like to change");
-if (userInput2 === "transport"){
-    randomTransport = chosenTransport[getRandomIndex(chosenTransport)]
-    console.log(randomTransport);
-}
+// display user trip details to console
+let displayUserTripDetails = displayTripDetails(randomDestination, randomRestaurant, randomTransportMode, randomEntertainment);
 
-let randomEntertainment = chosenEntertainment[getRandomIndex(chosenEntertainment)]
-console.log(randomEntertainment);
-let userInput3 = prompt("what part of your entertainment would you like to change");
-if (userInput3 === "entertainment"){
-    randomEntertainment = chosenEntertainment[getRandomIndex(chosenEntertainment)]
-    console.log(randomEntertainment);
-}
 
-console.log(randomDestination, randomRestaurant, randomTransport, randomEntertainment);
-=======
->>>>>>> 6e6fd71cdef9117ee3c2a22044e5e28576e609f9
+function displayTripDetails(tripDestination, tripRestaurant, tripTransportation, tripEntertainment){
+    // display user confirmed trip details one last time
+    console.log("Trip Details" +
+        "\n\n" +
+        "Destination: " + tripDestination +
+        "\n" +
+        "Restaurant: " + tripRestaurant +
+        "\n" +
+        "Transportation Mode: " + tripTransportation +
+        "\n" +
+        "Entertainment: " + tripEntertainment);
+}
