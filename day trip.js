@@ -7,9 +7,9 @@ let chosenTransport = ["plane", "train", "car", "taxicab"];
 let chosenEntertainment = ["movie", "music", "dance", "sport", "boating", "skydiving"];
 
 // Randomly selected trip details
-let randomDestination = getTripItem(chosenDestinations);
-let randomRestaurant = getTripItem(chosenRestaurants);
-let randomTransportMode = getTripItem(chosenTransportModes);
+let randomDestination = getTripItem(chosenDestination);
+let randomRestaurant = getTripItem(chosenRestaurant);
+let randomTransportMode = getTripItem(chosenTransportMode);
 let randomEntertainment = getTripItem(chosenEntertainment);
 
 
