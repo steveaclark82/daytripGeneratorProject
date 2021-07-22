@@ -43,7 +43,7 @@ function userConfirmationPrompt(){
         "\n\n" +
         "Destination: " + randomDestination +
         "\n" +
-        "Transportation Mode: " + randomTransportMode +
+        "Transportation: " + randomTransport +
         "\n" +
         "Restaurant: " + randomRestaurant +
         "\n" +
@@ -61,9 +61,9 @@ function verifyUserConfirmation(userConfirmation){
     while (userConfirmation !== "yes"){
 
         // Regenerate the trip selections again
-        randomDestination = getTripItem(possibleDestinations);
-        randomRestaurant = getTripItem(possibleRestaurants);
-        randomTransportMode = getTripItem(possibleTransportModes);
+        randomDestination = getTripItem(possibleDestination);
+        randomRestaurant = getTripItem(possibleRestaurant);
+        randomTranspor = getTripItem(possibleTransport);
         randomEntertainment = getTripItem(possibleEntertainment);
 
         // display newly generated trip details in prompt and ask user to confirm
@@ -71,7 +71,7 @@ function verifyUserConfirmation(userConfirmation){
             "\n\n" +
             "Destination: " + randomDestination +
              "\n" +
-             "Transportation Mode: " + randomTransportMode +
+             "Transportation: " + randomTransport +
             "\n" +
             "Restaurant: " + randomRestaurant +
             "\n" +
@@ -85,7 +85,7 @@ function verifyUserConfirmation(userConfirmation){
         "\n\n" +
         "Destination: " + randomDestination +
         "\n" +
-        "Transportation Mode: " + randomTransportMode +
+        "Transportation: " + randomTransport +
         "\n" +
         "Restaurant: " + randomRestaurant +
         "\n" +
@@ -94,7 +94,7 @@ function verifyUserConfirmation(userConfirmation){
 }
 
 // display user trip details to console
-let displayUserTripDetails = displayTripDetails(randomDestination, randomRestaurant, randomTransportMode, randomEntertainment);
+let displayUserTripDetails = displayTripDetails(randomDestination, randomRestaurant, randomTransport, randomEntertainment);
 
 
 function displayTripDetails(tripDestination, tripRestaurant, tripTransportation, tripEntertainment){
@@ -105,7 +105,7 @@ function displayTripDetails(tripDestination, tripRestaurant, tripTransportation,
         "\n" +
         "Restaurant: " + tripRestaurant +
         "\n" +
-        "Transportation Mode: " + tripTransportation +
+        "Transportation: " + tripTransportation +
         "\n" +
         "Entertainment: " + tripEntertainment);
 }
