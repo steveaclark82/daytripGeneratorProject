@@ -9,7 +9,7 @@ let chosenEntertainment = ["movie", "music", "dance", "sport", "boating", "skydi
 // Randomly selected trip details
 let randomDestination = getTripItem(chosenDestination);
 let randomRestaurant = getTripItem(chosenRestaurant);
-let randomTransportMode = getTripItem(chosenTransportMode);
+let randomTransport = getTripItem(chosenTransport);
 let randomEntertainment = getTripItem(chosenEntertainment);
 
 
